@@ -53,7 +53,7 @@ export default function AccessPage() {
           <>
             <div className="mt-5 flex flex-col items-center">
               <QrCode
-                text={`SAINT-GLINGLIN DEMO|${b.id}|${c.id}|${b.date}|${b.start}-${b.end}|${b.code}`}
+                text={`SAINTPHONIE DEMO|${b.id}|${c.id}|${b.date}|${b.start}-${b.end}|${b.code}`}
                 className={`w-52 h-52 rounded-xl border border-sand-dark ${phase === 'after' ? 'opacity-30 grayscale' : ''}`}
               />
               <p className="mt-3 text-xs uppercase tracking-widest text-muted">Door code</p>

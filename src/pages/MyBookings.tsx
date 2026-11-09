@@ -60,7 +60,7 @@ function Row({ b }: { b: Booking }) {
 function ShowReview({ b }: { b: Booking }) {
   return (
     <p className="mt-2 text-sm border-l-4 border-gold pl-2">
-      <span className="text-gold">{'★'.repeat(b.review!.rating)}</span> "{b.review!.text}"
+      <span className="text-coral">{'★'.repeat(b.review!.rating)}</span> "{b.review!.text}"
     </p>
   )
 }
@@ -79,7 +79,7 @@ function ReviewForm({ b }: { b: Booking }) {
             role="radio"
             aria-checked={rating === n}
             aria-label={`${n} star${n > 1 ? 's' : ''}`}
-            className={`text-2xl ${n <= rating ? 'text-gold' : 'text-sand-dark'}`}
+            className={`text-2xl ${n <= rating ? 'text-coral' : 'text-sand-dark'}`}
             onClick={() => setRating(n)}
           >
             ★

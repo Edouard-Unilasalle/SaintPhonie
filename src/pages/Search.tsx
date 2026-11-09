@@ -194,10 +194,10 @@ export default function Search() {
             />
             <div className="flex gap-4 text-xs text-muted mt-2">
               <span className="flex items-center gap-1">
-                <span className="inline-block h-3 w-3 rounded-full bg-glass" /> City church
+                <span className="inline-block h-3 w-3 rounded-full bg-lavender" /> City church
               </span>
               <span className="flex items-center gap-1">
-                <span className="inline-block h-3 w-3 rounded-full bg-gold" /> Village church
+                <span className="inline-block h-3 w-3 rounded-full bg-coral" /> Village church
               </span>
               <span className="flex items-center gap-1">
                 <span className="inline-block h-3 w-3 rounded-full bg-[#9a9a9a]" /> Not on the platform

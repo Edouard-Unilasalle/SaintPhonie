@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { Link, NavLink, Outlet, useLocation, useNavigate } from 'react-router-dom'
 import { useStore } from '../store'
-import { Logo } from './ChurchArt'
+import { Logo, Stripes, Wordmark } from './Brand'
 import type { Role } from '../types'
 import { fmtDay, fmtHour, ymd } from '../lib/time'
 
@@ -17,7 +17,7 @@ export function RoleSwitch({ compact = false }: { compact?: boolean }) {
       key={r}
       onClick={() => pick(r)}
       className={`rounded-full px-3 py-1.5 text-sm font-semibold transition ${
-        s.role === r ? 'bg-glass text-white shadow' : 'text-ink hover:bg-sand-dark/50'
+        s.role === r ? 'bg-ink text-paper shadow' : 'text-ink hover:bg-sand-dark/50'
       }`}
       aria-pressed={s.role === r}
     >
@@ -34,7 +34,7 @@ export function RoleSwitch({ compact = false }: { compact?: boolean }) {
 
 export function DemoBanner() {
   return (
-    <div className="bg-gold-light text-center text-xs font-medium text-ink/80 py-1 px-3">
+    <div className="bg-sand text-center text-xs font-medium text-ink/80 py-1 px-3">
       Demo data, for illustration only. Student prototype, no real bookings or payments.
     </div>
   )
@@ -67,9 +67,9 @@ export function Layout() {
     <div className="min-h-dvh flex flex-col">
       <header className="sticky top-0 z-[1000] bg-paper/95 backdrop-blur border-b border-sand-dark">
         <div className="mx-auto max-w-6xl flex items-center gap-3 px-4 py-2">
-          <Link to="/" className="flex items-center gap-2 shrink-0" aria-label="Saint-Glinglin home">
-            <Logo className="h-8 w-8" />
-            <span className="hidden sm:inline font-serif text-xl font-semibold">Saint-Glinglin</span>
+          <Link to="/" className="flex items-center gap-2.5 shrink-0" aria-label="SaintPhonie home">
+            <Logo className="h-9 w-9" />
+            <Wordmark className="hidden sm:block h-8 w-auto" />
           </Link>
           <nav className="hidden md:flex gap-1 ml-4">
             {items.map((i) => (
@@ -77,7 +77,7 @@ export function Layout() {
                 key={i.to}
                 to={i.to}
                 className={({ isActive }) =>
-                  `rounded-full px-3 py-1.5 text-sm font-medium ${isActive ? 'bg-sand text-glass' : 'text-muted hover:text-ink'}`
+                  `rounded-full px-3 py-1.5 text-sm font-medium ${isActive ? 'bg-ink text-paper' : 'text-muted hover:text-ink'}`
                 }
               >
                 {i.label}
@@ -88,6 +88,7 @@ export function Layout() {
             <RoleSwitch compact />
           </div>
         </div>
+        <Stripes />
         <DemoBanner />
         {s.demoOffset !== 0 && (
           <div className="bg-worship text-white text-xs text-center py-1 px-3 flex items-center justify-center gap-3">
@@ -112,7 +113,7 @@ export function Layout() {
               key={i.to}
               to={i.to}
               className={({ isActive }) =>
-                `flex-1 flex flex-col items-center gap-0.5 py-2 text-[11px] font-semibold ${isActive ? 'text-glass' : 'text-muted'}`
+                `flex-1 flex flex-col items-center gap-0.5 py-2 text-[11px] font-semibold ${isActive ? 'text-plum' : 'text-muted'}`
               }
             >
               <svg viewBox="0 0 24 24" className="h-6 w-6" fill="currentColor" aria-hidden="true">

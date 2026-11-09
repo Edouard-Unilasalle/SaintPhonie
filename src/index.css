@@ -1,26 +1,31 @@
 @import "tailwindcss";
 
 @theme {
-  --color-paper: #f6f2ea;
-  --color-sand: #ebe4d7;
-  --color-sand-dark: #d4c9b6;
-  --color-stone-line: #b9ad98;
-  --color-ink: #1d2232;
-  --color-muted: #5d6273;
-  --color-glass: #1e3a6e;
-  --color-glass-dark: #142849;
-  --color-glass-light: #dfe7f4;
-  --color-gold: #c8963e;
-  --color-gold-light: #f4e6c6;
-  --color-worship: #6b4c8a;
-  --color-worship-light: #ebe2f3;
-  --color-ok: #2f7d5b;
-  --color-ok-light: #dcefe5;
-  --color-warn: #a5661a;
-  --color-warn-light: #f8ead2;
-  --color-danger: #9b2c2c;
-  --font-serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
-  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  /* SaintPhonie brand palette */
+  --color-paper: #f5f4f0;
+  --color-sand: #ebe8df;
+  --color-sand-dark: #d8d4c8;
+  --color-stone-line: #b5b0a3;
+  --color-ink: #121212;
+  --color-muted: #5c5c5c;
+  --color-glass: #121212;
+  --color-glass-dark: #000000;
+  --color-glass-light: #e4e8f3;
+  --color-lavender: #8799c6;
+  --color-plum: #7d0f43;
+  --color-coral: #e07673;
+  --color-sage: #b8d895;
+  --color-gold: #b8d895;
+  --color-gold-light: #e7f1da;
+  --color-worship: #7d0f43;
+  --color-worship-light: #f4dde8;
+  --color-ok: #3e6b2f;
+  --color-ok-light: #e3efd6;
+  --color-warn: #a8403d;
+  --color-warn-light: #fae3e1;
+  --color-danger: #9b1c3a;
+  --font-serif: "Inter", system-ui, sans-serif;
+  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
 }
 
 html,
@@ -31,16 +36,34 @@ body {
   -webkit-tap-highlight-color: transparent;
 }
 
-h1,
-h2,
-h3 {
-  font-family: var(--font-serif);
-  letter-spacing: -0.01em;
+@layer base {
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-sans);
+    font-weight: 800;
+    letter-spacing: -0.025em;
+  }
+}
+
+.eyebrow {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.stripes {
+  display: flex;
+  height: 6px;
+}
+.stripes > span {
+  flex: 1;
 }
 
 @layer components {
 .card {
-  background-color: #fffdf9;
+  background-color: #fffffc;
   border: 1px solid var(--color-sand-dark);
   border-radius: 1rem;
   box-shadow: 0 1px 2px rgb(29 34 50 / 0.04);
@@ -72,8 +95,11 @@ h3 {
   background: var(--color-glass-dark);
 }
 .btn-gold {
-  background: var(--color-gold);
-  color: #1d2232;
+  background: var(--color-sage);
+  color: #121212;
+}
+.btn-gold:hover:not(:disabled) {
+  background: #a9cd82;
 }
 .btn-ghost {
   background: transparent;
@@ -136,7 +162,7 @@ h3 {
   height: 22px;
   border-radius: 50%;
   background: white;
-  border: 3px solid var(--color-glass);
+  border: 3px solid var(--color-plum);
   cursor: grab;
   box-shadow: 0 1px 3px rgb(0 0 0 / 0.2);
 }
@@ -163,10 +189,10 @@ h3 {
   box-shadow: 0 2px 4px rgb(0 0 0 / 0.35);
 }
 .pin-on {
-  background: var(--color-glass);
+  background: var(--color-lavender);
 }
 .pin-village {
-  background: var(--color-gold);
+  background: var(--color-coral);
 }
 .pin-off {
   background: #9a9a9a;

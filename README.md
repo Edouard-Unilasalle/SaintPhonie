@@ -1,6 +1,6 @@
-# Saint-Glinglin : prototype
+# SaintPhonie : prototype
 
-Prototype de démonstration (PWA) de Saint-Glinglin, la plateforme qui ouvre les églises vides de Rouen aux musiciens.
+Prototype de démonstration (PWA) de SaintPhonie (Saint-Glinglin dans le rapport), la plateforme qui ouvre les églises vides de Rouen aux musiciens.
 L'interface est en anglais. Toutes les données sont fictives, sauf le nom, l'adresse et la position des églises, qui
 viennent d'OpenStreetMap.
 
@@ -81,3 +81,9 @@ Avant de commencer : **Settings > Reset demo data**, volume du son monté.
 
 Données des églises et fond de carte : © contributeurs OpenStreetMap (licence ODbL). Illustrations : dessins SVG
 génériques. Projet étudiant UniLaSalle Rouen, sans lien avec un diocèse, une commune ou une entreprise.
+
+## Identité visuelle
+
+La planche de DA est dans `brand/saintphonie-da.png`. Le script `node brand/build-brand.mjs` en extrait le wordmark
+et la clé de sol (`src/assets/`) et régénère les icônes de l'application (`public/`). Palette : crème `#f5f4f0`,
+noir `#121212`, lavande `#8799c6`, bordeaux `#7d0f43`, corail `#e07673`, sauge `#b8d895`. Police : Inter.

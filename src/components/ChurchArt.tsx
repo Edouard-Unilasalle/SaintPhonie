@@ -2,24 +2,24 @@ import type { ArtVariant } from '../types'
 
 /** Generic church facade illustration. Not a portrait of any real building. */
 export function ChurchArt({ variant, className = '', glow = true }: { variant: ArtVariant; className?: string; glow?: boolean }) {
-  const stone = '#ece4d4'
-  const line = '#8c7f69'
-  const roof = '#4a5568'
+  const stone = '#efece4'
+  const line = '#7d786c'
+  const roof = '#2b2b2b'
   const uid = `a${variant}`
   return (
     <svg viewBox="0 0 200 140" className={className} role="img" aria-label="Stylised church facade illustration">
       <defs>
         <linearGradient id={`${uid}-sky`} x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stopColor="#c9d6ea" />
-          <stop offset="1" stopColor="#f6f2ea" />
+          <stop offset="0" stopColor="#dfe4f2" />
+          <stop offset="1" stopColor="#f5f4f0" />
         </linearGradient>
         <radialGradient id={`${uid}-glow`}>
-          <stop offset="0" stopColor="#f4d58d" stopOpacity="0.9" />
-          <stop offset="1" stopColor="#f4d58d" stopOpacity="0" />
+          <stop offset="0" stopColor="#d9ecc2" stopOpacity="0.9" />
+          <stop offset="1" stopColor="#d9ecc2" stopOpacity="0" />
         </radialGradient>
       </defs>
       <rect width="200" height="140" fill={`url(#${uid}-sky)`} />
-      <rect y="128" width="200" height="12" fill="#ddd3c1" />
+      <rect y="128" width="200" height="12" fill="#e2ded3" />
       {variant === 'gothic' && <Gothic stone={stone} line={line} roof={roof} />}
       {variant === 'spire' && <Spire stone={stone} line={line} roof={roof} />}
       {variant === 'cathedral' && <Cathedral stone={stone} line={line} roof={roof} />}
@@ -46,19 +46,19 @@ type P = { stone: string; line: string; roof: string }
 function Rose({ cx, cy, r }: { cx: number; cy: number; r: number }) {
   const petals = Array.from({ length: 8 }, (_, i) => {
     const a = (i * Math.PI) / 4
-    return <circle key={i} cx={cx + Math.cos(a) * r * 0.55} cy={cy + Math.sin(a) * r * 0.55} r={r * 0.36} fill={i % 2 ? '#3d5f9e' : '#6b4c8a'} opacity="0.9" />
+    return <circle key={i} cx={cx + Math.cos(a) * r * 0.55} cy={cy + Math.sin(a) * r * 0.55} r={r * 0.36} fill={i % 2 ? '#8799c6' : '#7d0f43'} opacity="0.9" />
   })
   return (
     <g>
-      <circle cx={cx} cy={cy} r={r} fill="#1e3a6e" stroke="#8c7f69" strokeWidth="1.2" />
+      <circle cx={cx} cy={cy} r={r} fill="#121212" stroke="#7d786c" strokeWidth="1.2" />
       {petals}
-      <circle cx={cx} cy={cy} r={r * 0.28} fill="#c8963e" />
+      <circle cx={cx} cy={cy} r={r * 0.28} fill="#b8d895" />
     </g>
   )
 }
 
 function Portal({ x, w, h }: { x: number; w: number; h: number }) {
-  return <path d={`M${x} 128 V${128 - h + w / 2} A${w / 2} ${w / 2} 0 0 1 ${x + w} ${128 - h + w / 2} V128 Z`} fill="#3a3f4f" />
+  return <path d={`M${x} 128 V${128 - h + w / 2} A${w / 2} ${w / 2} 0 0 1 ${x + w} ${128 - h + w / 2} V128 Z`} fill="#121212" />
 }
 
 function Gothic({ stone, line, roof }: P) {
@@ -73,8 +73,8 @@ function Gothic({ stone, line, roof }: P) {
       <rect x="60" y="56" width="80" height="72" fill={stone} />
       <polygon points="60,56 100,30 140,56" fill={stone} />
       <Portal x={88} w={24} h={34} />
-      <rect x="66" y="96" width="8" height="22" rx="4" fill="#3d5f9e" />
-      <rect x="126" y="96" width="8" height="22" rx="4" fill="#3d5f9e" />
+      <rect x="66" y="96" width="8" height="22" rx="4" fill="#8799c6" />
+      <rect x="126" y="96" width="8" height="22" rx="4" fill="#8799c6" />
     </g>
   )
 }
@@ -89,8 +89,8 @@ function Spire({ stone, line, roof }: P) {
       <rect x="64" y="66" width="72" height="62" fill={stone} />
       <polygon points="64,66 100,44 136,66" fill={stone} />
       <Portal x={90} w={20} h={30} />
-      <rect x="50" y="98" width="7" height="20" rx="3.5" fill="#3d5f9e" />
-      <rect x="143" y="98" width="7" height="20" rx="3.5" fill="#3d5f9e" />
+      <rect x="50" y="98" width="7" height="20" rx="3.5" fill="#8799c6" />
+      <rect x="143" y="98" width="7" height="20" rx="3.5" fill="#8799c6" />
     </g>
   )
 }
@@ -119,13 +119,13 @@ function Romanesque({ stone, line, roof }: P) {
       <polygon points="36,90 100,76 164,90" fill={roof} />
       <rect x="84" y="30" width="32" height="40" fill={stone} />
       <polygon points="84,30 100,14 116,30" fill={roof} />
-      <rect x="92" y="40" width="5" height="10" rx="2.5" fill="#3a3f4f" />
-      <rect x="103" y="40" width="5" height="10" rx="2.5" fill="#3a3f4f" />
+      <rect x="92" y="40" width="5" height="10" rx="2.5" fill="#121212" />
+      <rect x="103" y="40" width="5" height="10" rx="2.5" fill="#121212" />
       <rect x="66" y="62" width="68" height="66" fill={stone} />
       <polygon points="66,62 100,48 134,62" fill={stone} />
       <Portal x={90} w={20} h={28} />
-      <rect x="74" y="88" width="6" height="14" rx="3" fill="#3d5f9e" />
-      <rect x="120" y="88" width="6" height="14" rx="3" fill="#3d5f9e" />
+      <rect x="74" y="88" width="6" height="14" rx="3" fill="#8799c6" />
+      <rect x="120" y="88" width="6" height="14" rx="3" fill="#8799c6" />
     </g>
   )
 }
@@ -138,9 +138,9 @@ function Village({ stone, line, roof }: P) {
       <rect x="86" y="62" width="28" height="66" fill={stone} />
       <polygon points="86,62 100,14 114,62" fill={roof} />
       <Portal x={93} w={14} h={22} />
-      <rect x="130" y="104" width="6" height="12" rx="3" fill="#3d5f9e" />
-      <rect x="150" y="104" width="6" height="12" rx="3" fill="#3d5f9e" />
-      <circle cx="40" cy="112" r="14" fill="#9fb48c" stroke="none" />
+      <rect x="130" y="104" width="6" height="12" rx="3" fill="#8799c6" />
+      <rect x="150" y="104" width="6" height="12" rx="3" fill="#8799c6" />
+      <circle cx="40" cy="112" r="14" fill="#b8d895" stroke="none" />
       <rect x="38" y="118" width="4" height="10" fill="#7a6a52" stroke="none" />
     </g>
   )
@@ -152,24 +152,10 @@ function Modern({ stone, line, roof }: P) {
       <path d="M20 128 C 40 70, 80 60, 100 30 C 120 60, 160 70, 180 128 Z" fill={roof} />
       <path d="M38 128 C 55 90, 85 82, 100 56 C 115 82, 145 90, 162 128 Z" fill={stone} />
       <path d="M100 30 L 104 4 L 108 34" fill="none" stroke={roof} strokeWidth="2" />
-      <rect x="70" y="104" width="60" height="24" fill="#3d5f9e" opacity="0.8" />
+      <rect x="70" y="104" width="60" height="24" fill="#8799c6" opacity="0.8" />
       <line x1="85" y1="104" x2="85" y2="128" />
       <line x1="100" y1="104" x2="100" y2="128" />
       <line x1="115" y1="104" x2="115" y2="128" />
     </g>
-  )
-}
-
-/** Small rose window used as logo. */
-export function Logo({ className = '' }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 40 40" className={className} aria-hidden="true">
-      <circle cx="20" cy="20" r="19" fill="#1e3a6e" />
-      {Array.from({ length: 8 }, (_, i) => {
-        const a = (i * Math.PI) / 4
-        return <circle key={i} cx={20 + Math.cos(a) * 10} cy={20 + Math.sin(a) * 10} r="6" fill={i % 2 ? '#3d5f9e' : '#6b4c8a'} />
-      })}
-      <circle cx="20" cy="20" r="5.5" fill="#c8963e" />
-    </svg>
   )
 }

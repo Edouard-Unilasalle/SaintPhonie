@@ -156,7 +156,7 @@ function Impact({ churchId }: { churchId: string }) {
         <p className="mt-3 font-mono text-4xl md:text-5xl font-bold text-gold tabular-nums">{euro(Math.round(raised * 100) / 100)}</p>
         <p className="text-sm text-white/75">raised of {euro(f.target)}</p>
         <div className="mt-3 h-5 rounded-full bg-white/15 overflow-hidden" role="progressbar" aria-valuenow={Math.round(pct)} aria-valuemin={0} aria-valuemax={100}>
-          <div className="h-full rounded-full bg-linear-to-r from-gold to-[#f4d58d]" style={{ width: `${pct}%` }} />
+          <div className="h-full rounded-full bg-linear-to-r from-lavender via-coral to-sage" style={{ width: `${pct}%` }} />
         </div>
         <p className="mt-2 text-sm text-white/80">
           {pct.toFixed(1)}% of the goal. Each hour booked here adds {euro(maintenanceShare(s.churches.find((c) => c.id === churchId)!.pricePerHour))} to

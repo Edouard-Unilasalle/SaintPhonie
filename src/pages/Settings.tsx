@@ -55,7 +55,7 @@ export default function Settings() {
       <section className="card p-5 space-y-2 text-sm">
         <h2 className="text-xl font-semibold">About this prototype</h2>
         <p>
-          Saint-Glinglin is a student project from UniLaSalle Rouen (creativity exercise, 5th year, Purchasing and Supply Chain).
+          SaintPhonie (called Saint-Glinglin in our report) is a student project from UniLaSalle Rouen (creativity exercise, 5th year, Purchasing and Supply Chain).
           It is a demonstration, not a real service.
         </p>
         <ul className="list-disc pl-5 space-y-1 text-muted">

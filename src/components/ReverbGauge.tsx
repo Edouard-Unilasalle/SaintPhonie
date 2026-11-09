@@ -12,10 +12,10 @@ export function ReverbGauge({ value }: { value: number }) {
   }
   const [nx, ny] = pt(value, 70)
   const zones = [
-    [0, 2.5, '#dfe7f4'],
-    [2.5, 4, '#b9c9e6'],
-    [4, 6, '#7f9acb'],
-    [6, 9, '#3d5f9e'],
+    [0, 2.5, '#e4e8f3'],
+    [2.5, 4, '#c3cde6'],
+    [4, 6, '#8799c6'],
+    [6, 9, '#4f5f8f'],
   ] as const
   return (
     <svg viewBox="0 -12 200 130" className="w-full max-w-64" role="img" aria-label={`Reverberation time ${value.toFixed(1)} seconds`}>
@@ -25,18 +25,18 @@ export function ReverbGauge({ value }: { value: number }) {
       {REVERB_MARKS.map((m) => {
         const [x, y] = pt(m.value, 100)
         return (
-          <text key={m.label} x={x} y={y + 4} fontSize="8.5" textAnchor="middle" fill="#5d6273">
+          <text key={m.label} x={x} y={y + 4} fontSize="8.5" textAnchor="middle" fill="#5c5c5c">
             {m.label}
           </text>
         )
       })}
-      <line x1="100" y1="100" x2={nx} y2={ny} stroke="#c8963e" strokeWidth="4" strokeLinecap="round" />
-      <circle cx="100" cy="100" r="7" fill="#1d2232" />
-      <text x="100" y="80" fontSize="20" fontWeight="700" textAnchor="middle" fill="#1e3a6e">
+      <line x1="100" y1="100" x2={nx} y2={ny} stroke="#7d0f43" strokeWidth="4" strokeLinecap="round" />
+      <circle cx="100" cy="100" r="7" fill="#121212" />
+      <text x="100" y="80" fontSize="20" fontWeight="700" textAnchor="middle" fill="#121212">
         {value.toFixed(1)} s
       </text>
-      <text x="22" y="115" fontSize="8" fill="#5d6273" textAnchor="middle">0 s</text>
-      <text x="178" y="115" fontSize="8" fill="#5d6273" textAnchor="middle">9 s</text>
+      <text x="22" y="115" fontSize="8" fill="#5c5c5c" textAnchor="middle">0 s</text>
+      <text x="178" y="115" fontSize="8" fill="#5c5c5c" textAnchor="middle">9 s</text>
     </svg>
   )
 }

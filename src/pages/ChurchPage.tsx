@@ -135,7 +135,7 @@ export default function ChurchPage() {
           <div className="space-y-3">
             {reviews.map((b) => (
               <blockquote key={b.id} className="border-l-4 border-gold pl-3">
-                <p className="text-gold">{'★'.repeat(b.review!.rating)}{'☆'.repeat(5 - b.review!.rating)}</p>
+                <p className="text-coral">{'★'.repeat(b.review!.rating)}{'☆'.repeat(5 - b.review!.rating)}</p>
                 <p>"{b.review!.text}"</p>
                 <footer className="text-xs text-muted">
                   {b.review!.author}, {fmtDay(b.date)} (fictional review)
