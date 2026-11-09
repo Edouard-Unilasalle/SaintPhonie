@@ -71,7 +71,8 @@ Avant de commencer : **Settings > Reset demo data**, volume du son monté.
 
 ## Structure
 
-- `src/data/churches.ts` : les 12 églises (+ la cathédrale, non disponible) et leurs sources OSM.
+- `src/data/churches.ts` : les 12 églises de Rouen et alentours (+ la cathédrale, non disponible) et leurs sources OSM.
+- `src/data/villages.ts` : 11 églises de village de la Métropole Rouen Normandie, vérifiées sur OSM.
 - `src/data/seed.ts` : offices, réservations, avis et fonds de départ (dates relatives au jour du lancement).
 - `src/store.tsx` : état de l'application, enregistré dans `localStorage`.
 - `src/lib/audio.ts` : synthèse du motif, réponse impulsionnelle et enregistrement micro.

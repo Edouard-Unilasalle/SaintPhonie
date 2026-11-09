@@ -34,6 +34,7 @@ body {
   color: var(--color-ink);
   font-family: var(--font-sans);
   -webkit-tap-highlight-color: transparent;
+  overflow-x: clip;
 }
 
 @layer base {

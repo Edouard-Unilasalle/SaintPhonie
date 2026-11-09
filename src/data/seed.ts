@@ -2,7 +2,7 @@ import type { Booking, Fund, Service, State } from '../types'
 import { CHURCHES } from './churches'
 import { addDays, ymd } from '../lib/time'
 
-export const STATE_VERSION = 1
+export const STATE_VERSION = 2
 
 let n = 0
 const sid = () => `svc-${++n}`
@@ -104,7 +104,9 @@ export function buildSeed(now = Date.now()): State {
     boscherville: ['Organ restoration', 25000],
   }
   const funds: Record<string, Fund> = {}
-  for (const [id, [goal, target]] of Object.entries(goals)) {
+  for (const ch of CHURCHES.filter((x) => x.available)) {
+    const id = ch.id
+    const [goal, target] = goals[id] ?? (id.length % 2 ? ['Roof repair', 12000] : ['Bell restoration', 8000])
     const raised = Math.round(target * (0.45 + ((id.length * 7) % 20) / 100))
     funds[id] = { goal, target, raised, lastSeen: raised, hoursBase: 40 + (id.length * 13) % 90, revenueBase: 0 }
     funds[id].revenueBase = funds[id].hoursBase * (CHURCHES.find((c) => c.id === id)?.pricePerHour ?? 20)

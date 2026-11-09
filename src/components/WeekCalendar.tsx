@@ -62,7 +62,7 @@ export function WeekCalendar({
   }
 
   return (
-    <div className="overflow-x-auto -mx-1 px-1">
+    <div className="max-w-full overflow-x-auto -mx-1 px-1">
       <div className="min-w-[560px]">
         <div className="grid" style={{ gridTemplateColumns: `44px repeat(7, 1fr)` }}>
           <div />

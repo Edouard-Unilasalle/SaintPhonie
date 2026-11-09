@@ -85,7 +85,7 @@ export default function Parish() {
         </div>
       </section>
 
-      <div className="grid lg:grid-cols-2 gap-5">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
         <Charter />
         <section className="card p-5">
           <h2 className="text-2xl font-semibold">Latest bookings</h2>
@@ -240,8 +240,8 @@ function Services() {
       <h2 className="text-2xl font-semibold">Services and calendar</h2>
       <p className="text-sm text-muted">Worship always comes first. Adding a service blocks the slot for musicians immediately.</p>
 
-      <div className="mt-4 grid lg:grid-cols-[1fr_1.4fr] gap-5">
-        <div className="space-y-4">
+      <div className="mt-4 grid grid-cols-1 lg:grid-cols-[1fr_1.4fr] gap-5">
+        <div className="space-y-4 min-w-0">
           <div className="rounded-xl bg-worship-light p-4 space-y-3">
             <p className="font-semibold text-worship">Add a service</p>
             <div className="grid grid-cols-2 gap-2">
@@ -321,7 +321,7 @@ function Services() {
           </div>
         </div>
 
-        <div>
+        <div className="min-w-0">
           <p className="font-semibold mb-2">What musicians see this week</p>
           <WeekCalendar church={c} readOnly />
           <p className="text-xs text-muted mt-2">

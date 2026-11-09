@@ -161,7 +161,7 @@ export default function Search() {
       <div className="flex items-end justify-between gap-3 mb-3">
         <div>
           <h1 className="text-3xl font-semibold">Find your church</h1>
-          <p className="text-muted text-sm">Rouen, the city of a hundred bell towers, and nearby villages.</p>
+          <p className="text-muted text-sm">Rouen, the city of a hundred bell towers, and village churches across the Métropole.</p>
         </div>
         <p className="text-sm font-semibold text-glass whitespace-nowrap" aria-live="polite">
           {results.length} of {bookable.length} churches

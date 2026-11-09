@@ -1,4 +1,5 @@
 import type { Church, ParishRules, Style } from '../types'
+import { VILLAGES } from './villages'
 
 /*
  * Names, addresses, coordinates and OSM ids come from OpenStreetMap
@@ -283,6 +284,7 @@ export const CHURCHES: Church[] = [
       'A Romanesque abbey church from the early 12th century, remarkably intact, in a small village of the Seine valley.',
     rules: rules([...SACRED]),
   },
+  ...VILLAGES,
   {
     id: 'cathedrale',
     name: 'Cathédrale Notre-Dame de Rouen',
