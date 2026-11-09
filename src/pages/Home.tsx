@@ -43,7 +43,7 @@ export default function Home() {
 
       {/* Black lower part with a curved edge */}
       <section className="relative flex-1 bg-ink text-paper">
-        <svg className="absolute -top-16 md:-top-24 left-0 w-full h-16 md:h-24" viewBox="0 0 100 10" preserveAspectRatio="none" aria-hidden="true">
+        <svg className="absolute -top-16 md:-top-24 left-0 w-full h-16 md:h-24 translate-y-px" viewBox="0 0 100 10" preserveAspectRatio="none" aria-hidden="true">
           <path d="M0 10 C 20 -2, 55 -2, 74 8 C 82 4, 92 4, 100 6 L 100 10 Z" fill="#121212" />
         </svg>
         <div className="relative mx-auto max-w-6xl px-4 pb-10 grid md:grid-cols-2 gap-10 items-start">
