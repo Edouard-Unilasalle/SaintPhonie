@@ -1,0 +1,210 @@
+@import "tailwindcss";
+
+@theme {
+  --color-paper: #f6f2ea;
+  --color-sand: #ebe4d7;
+  --color-sand-dark: #d4c9b6;
+  --color-stone-line: #b9ad98;
+  --color-ink: #1d2232;
+  --color-muted: #5d6273;
+  --color-glass: #1e3a6e;
+  --color-glass-dark: #142849;
+  --color-glass-light: #dfe7f4;
+  --color-gold: #c8963e;
+  --color-gold-light: #f4e6c6;
+  --color-worship: #6b4c8a;
+  --color-worship-light: #ebe2f3;
+  --color-ok: #2f7d5b;
+  --color-ok-light: #dcefe5;
+  --color-warn: #a5661a;
+  --color-warn-light: #f8ead2;
+  --color-danger: #9b2c2c;
+  --font-serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+html,
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-tap-highlight-color: transparent;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-serif);
+  letter-spacing: -0.01em;
+}
+
+@layer components {
+.card {
+  background-color: #fffdf9;
+  border: 1px solid var(--color-sand-dark);
+  border-radius: 1rem;
+  box-shadow: 0 1px 2px rgb(29 34 50 / 0.04);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 999px;
+  padding: 0.65rem 1.2rem;
+  font-weight: 600;
+  transition: transform 0.1s, background 0.2s, opacity 0.2s;
+  cursor: pointer;
+}
+.btn:active {
+  transform: scale(0.97);
+}
+.btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+.btn-primary {
+  background: var(--color-glass);
+  color: white;
+}
+.btn-primary:hover:not(:disabled) {
+  background: var(--color-glass-dark);
+}
+.btn-gold {
+  background: var(--color-gold);
+  color: #1d2232;
+}
+.btn-ghost {
+  background: transparent;
+  border: 1px solid var(--color-stone-line);
+  color: var(--color-ink);
+}
+.btn-ghost:hover:not(:disabled) {
+  background: var(--color-sand);
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  border-radius: 999px;
+  padding: 0.15rem 0.6rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: var(--color-sand);
+  color: var(--color-ink);
+}
+
+.field {
+  width: 100%;
+  border: 1px solid var(--color-stone-line);
+  border-radius: 0.6rem;
+  padding: 0.55rem 0.7rem;
+  background: white;
+}
+
+.label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-muted);
+  margin-bottom: 0.25rem;
+}
+
+}
+
+/* Dual range slider: two inputs stacked on one track */
+.dual {
+  position: relative;
+  height: 28px;
+}
+.dual input[type="range"] {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  appearance: none;
+  -webkit-appearance: none;
+  background: transparent;
+  pointer-events: none;
+  margin: 0;
+}
+.dual input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  pointer-events: auto;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: white;
+  border: 3px solid var(--color-glass);
+  cursor: grab;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.2);
+}
+.dual input[type="range"]::-moz-range-thumb {
+  pointer-events: auto;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: white;
+  border: 3px solid var(--color-glass);
+  cursor: grab;
+}
+
+.leaflet-container {
+  font-family: var(--font-sans);
+  background: var(--color-sand);
+}
+.pin {
+  width: 22px;
+  height: 22px;
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg);
+  border: 2px solid white;
+  box-shadow: 0 2px 4px rgb(0 0 0 / 0.35);
+}
+.pin-on {
+  background: var(--color-glass);
+}
+.pin-village {
+  background: var(--color-gold);
+}
+.pin-off {
+  background: #9a9a9a;
+}
+.pin-dim {
+  opacity: 0.3;
+}
+
+@keyframes glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgb(47 125 91 / 0.45); }
+  50% { box-shadow: 0 0 0 18px rgb(47 125 91 / 0); }
+}
+.glow {
+  animation: glow 1.8s infinite;
+}
+
+@keyframes eq {
+  0%, 100% { transform: scaleY(0.25); }
+  50% { transform: scaleY(1); }
+}
+.eq span {
+  display: inline-block;
+  width: 4px;
+  height: 18px;
+  margin: 0 1px;
+  background: var(--color-gold);
+  transform-origin: bottom;
+  animation: eq 0.9s infinite ease-in-out;
+}
+.eq span:nth-child(2) { animation-delay: 0.15s; }
+.eq span:nth-child(3) { animation-delay: 0.3s; }
+.eq span:nth-child(4) { animation-delay: 0.45s; }
+.eq span:nth-child(5) { animation-delay: 0.6s; }
+
+.hatch {
+  background-image: repeating-linear-gradient(45deg, transparent 0 5px, rgb(0 0 0 / 0.05) 5px 7px);
+}
+
+.safe-bottom {
+  padding-bottom: env(safe-area-inset-bottom);
+}
