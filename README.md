@@ -85,5 +85,6 @@ génériques. Projet étudiant UniLaSalle Rouen, sans lien avec un diocèse, une
 ## Identité visuelle
 
 La planche de DA est dans `brand/saintphonie-da.png`. Le script `node brand/build-brand.mjs` en extrait le wordmark
-et la clé de sol (`src/assets/`) et régénère les icônes de l'application (`public/`). Palette : crème `#f5f4f0`,
+et la clé de sol (`src/assets/`). `node brand/icon-variants.mjs` montre les variantes d'icône ; `node brand/icon-variants.mjs stripes`
+écrit les icônes retenues dans `public/`. Palette : crème `#f5f4f0`,
 noir `#121212`, lavande `#8799c6`, bordeaux `#7d0f43`, corail `#e07673`, sauge `#b8d895`. Police : Inter.

@@ -8,8 +8,6 @@ const here = path.dirname(fileURLToPath(import.meta.url))
 const root = path.resolve(here, '..')
 const SRC = path.join(here, 'saintphonie-da.png')
 
-const GREEN = '#b8d895'
-const BLACK = '#121212'
 
 /** Crops a region and turns it into a single-colour glyph with alpha taken from brightness. */
 async function glyph({ left, top, width, height }, mode, out) {
@@ -30,27 +28,5 @@ const wordmark = await glyph({ left: 125, top: 75, width: 790, height: 315 }, 'd
 const clef = await glyph({ left: 345, top: 1145, width: 445, height: 395 }, 'light-on-dark', path.join(root, 'src/assets/clef.png'))
 console.log('wordmark and clef extracted')
 
-/** App icon: sage green tile, black rounded square, cream treble clef (as on the brand board). */
-async function icon(size, { maskable = false } = {}) {
-  const pad = maskable ? 0.2 : 0.1
-  const inner = Math.round(size * (1 - pad * 2))
-  const off = Math.round(size * pad)
-  const r = Math.round(inner * 0.16)
-  const tile = Buffer.from(
-    `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}">
-      <rect width="${size}" height="${size}" rx="${maskable ? 0 : Math.round(size * 0.18)}" fill="${GREEN}"/>
-      <rect x="${off}" y="${off}" width="${inner}" height="${inner}" rx="${r}" fill="${BLACK}"/>
-    </svg>`,
-  )
-  const g = await sharp(clef).resize({ height: Math.round(inner * 0.72), width: Math.round(inner * 0.72), fit: 'inside' }).tint('#f5f4f0').toBuffer()
-  return sharp(tile).composite([{ input: g, gravity: 'center' }]).png()
-}
-
-const pub = (f) => path.join(root, 'public', f)
-await (await icon(64)).toFile(pub('pwa-64x64.png'))
-await (await icon(192)).toFile(pub('pwa-192x192.png'))
-await (await icon(512)).toFile(pub('pwa-512x512.png'))
-await (await icon(512, { maskable: true })).toFile(pub('maskable-icon-512x512.png'))
-await (await icon(180, { maskable: true })).flatten({ background: GREEN }).toFile(pub('apple-touch-icon-180x180.png'))
-await (await icon(48)).toFile(pub('favicon-48x48.png'))
-console.log('icons written', path.basename(wordmark))
+// App icons are built by brand/icon-variants.mjs (chosen variant: stripes).
+console.log('Now run: node brand/icon-variants.mjs stripes', path.basename(wordmark), path.basename(clef))
